@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/geovanij2/YASN",
+  "author": "Geovani da Silva Junior",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf node_modules",
+    "test": "",
+    "start": "yarn run build && yarn run watch",
+    "debug": "yarn run build && yarn run watch-debug",
+    "build": "yarn run build-ts",
+    "build-ts": "yarn run tsc",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"yarn run watch-ts\" \"yarn run serve\"",
+    "watch-ts": "tsc -w",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"yarn run watch-ts\" \"yarn run serve-debug\"",
+    "serve": "nodemon --delay 5 dist/src/index.js",
+    "serve-debug": "nodemon --inspect dist/src/index.js",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "lint-fix": "tslint -c tslint.json -p tsconfig.json --fix"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.10",
+    "tslint": "^5.14.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.3.3333"
+  }
+}
