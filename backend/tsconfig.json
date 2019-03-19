@@ -4,7 +4,7 @@
 		"noErrorTruncation": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUnusedLocals": true,
-		"noUnusedParameters": true,
+		"noUnusedParameters": false,
 		"strict": true,
         "module": "commonjs",
 		"esModuleInterop": true,
